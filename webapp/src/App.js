@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+import './App.css'
+import LoggedIn from './LoggedIn'
+import React, {useState} from "react";
+import NotLogged from "./NotLogged";
 
 function App() {
+  const [logged, setLogged] = useState(true)
+
+  const switcher = () => {
+    setLogged(!logged);
+    console.log(logged)
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div className='app'>
+        <button onClick={()=>switcher()}>switch</button>
+        { (logged) ? (
+            <LoggedIn/>
+        ) : (
+            <NotLogged/>
+        )}
+      </div>
   );
 }
 

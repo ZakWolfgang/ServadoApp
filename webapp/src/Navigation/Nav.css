@@ -1,0 +1,13 @@
+.navlinks {
+    text-decoration: none;
+    color: white;
+}
+.navlinks:hover {
+    color: white;
+}
+
+.navbar {
+    font-size: 2vh;
+    height: 7vh;
+    
+}
