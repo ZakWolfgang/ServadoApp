@@ -1,16 +1,24 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+
+//import Tabs from './navigation/Tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+
 import { auth } from '../firebase'
+import SettingsScreen from './SettingsScreen';
+
+const Tab = createBottomTabNavigator();
 
 const HomeScreen = () => {
-  const navigation = useNavigation()
+const navigation = useNavigation()
+
 
   const handleSignOut = () => {
     auth
       .signOut()
       .then(() => {
-        navigation.replace("Login")
+        navigation.navigate("Login")
       })
       .catch(error => alert(error.message))
   }
@@ -24,8 +32,15 @@ const HomeScreen = () => {
       >
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
-    </View>
+      <Text>Welcome to Milan Mondays</Text>
+
+
+    </View> 
+    
+    
+    
   )
+   
 }
 
 export default HomeScreen

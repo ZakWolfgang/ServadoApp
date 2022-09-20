@@ -12,12 +12,12 @@ const LoginScreen = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.replace("Home")
+        navigation.navigate("Home")
       }
     })
 
     return unsubscribe
-  }, [])
+  }, []) 
 
   const handleSignUp = () => {
     auth
@@ -45,6 +45,9 @@ const LoginScreen = () => {
       behavior="padding"
     >
       <View style={styles.inputContainer}>
+
+        <Text>Welcome to Milan Mondayz</Text>
+
         <TextInput
           placeholder="Email"
           value={email}
@@ -72,6 +75,12 @@ const LoginScreen = () => {
           style={[styles.button, styles.buttonOutline]}
         >
           <Text style={styles.buttonOutlineText}>Register</Text>
+        </TouchableOpacity>
+      </View>
+
+      <View>
+        <TouchableOpacity>
+          <Text>Forgot Password?</Text>
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>

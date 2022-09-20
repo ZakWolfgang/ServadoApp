@@ -2,19 +2,37 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
+import Tabs from './navigation/Tabs';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import SettingsScreen from './screens/SettingsScreen';
 
 const Stack = createNativeStackNavigator();
+const Tab = createBottomTabNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen options={{ headerShown: false }} name="Login" component={LoginScreen} /> 
-        <Stack.Screen name="Home" component={HomeScreen} /> 
-      </Stack.Navigator>
+      <Tab.Navigator>
+      <Tab.Screen
+          name="Login"
+          component={LoginScreen}
+          options={{
+            // hide the bottom tab bar on Product Screen
+            tabBarStyle: { display: "none" },
+          }}
+        />
+      <Tab.Screen
+        name="Home"
+        component={HomeScreen}
+      />
+      </Tab.Navigator>
     </NavigationContainer>
+
+    
+  
   );
 }
 
@@ -26,3 +44,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
 });
+
+export default App;
