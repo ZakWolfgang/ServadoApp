@@ -1,12 +1,12 @@
 import { useNavigation } from '@react-navigation/core'
 import React from 'react'
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View, FlatList } from 'react-native'
 
 //import Tabs from './navigation/Tabs';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 import { auth } from '../firebase'
-import SettingsScreen from './SettingsScreen';
+//import SettingsScreen from './SettingsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -25,6 +25,18 @@ const navigation = useNavigation()
 
   return (
     <View style={styles.container}>
+      <FlatList
+        data={[1, 2, 3, 4]}
+        numColumns={2}
+        renderItem={() => (
+      <View style={{ 
+        flex: 1,
+        height: 150,
+        borderWidth: 1,
+        margin: 20
+      }}/>
+      )}
+    />
       <Text>Email: {auth.currentUser?.email}</Text>
       <TouchableOpacity
         onPress={handleSignOut}
@@ -33,11 +45,7 @@ const navigation = useNavigation()
         <Text style={styles.buttonText}>Sign out</Text>
       </TouchableOpacity>
       <Text>Welcome to Milan Mondays</Text>
-
-
     </View> 
-    
-    
     
   )
    
