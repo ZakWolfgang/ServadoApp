@@ -5,17 +5,16 @@ import { colors } from '../global/styles.js';
 import { restaurantData } from '../global/data';
 
 import React from 'react'
-import { TouchableOpacity } from 'react-native-gesture-handler';
 import RestaurantCard from '../components/RestaurantCard.js';
 import { color } from '@rneui/base';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
-//const SCREEN_WIDTH = Dimensions.get('window').width
 
 export default function RestaurantScreen() {
   const navigation = useNavigation()
     return (
         <View style={styles.container}>
+          <View style={styles.cardView}>
             <Button
               title="Go to Menu"
               onPress={() => navigation.navigate('Menu')}
@@ -44,20 +43,27 @@ export default function RestaurantScreen() {
             )}
           />
         </View>
+          </View>
+            
       </View>
  
     )
 }
 
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor:'white',
+    flex: 1,    
+    backgroundColor:colors.tan,
     alignItems: 'center',
   },
+  cardView: {
+    alignItems:'center',
+    backgroundColor:colors.white,
+    width:'100%',
+    borderRadius:30
+  },
   headerText:{
-    color:'white',
+    color:colors.darkBlue,
     fontSize:25,
     fontWeight:"bold",
     
@@ -65,7 +71,7 @@ const styles = StyleSheet.create({
   headerTextView:{
     alignItems:'center',
     width:'100%',
-    backgroundColor:colors.darkBlue,
+    //backgroundColor:colors.darkBlue,
     paddingVertical:3,
     
   }

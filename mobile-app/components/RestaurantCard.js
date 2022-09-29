@@ -48,36 +48,27 @@ export default function RestaurantCard({
 
 const styles = StyleSheet.create({
     cardView:{
-        backgroundColor:colors.darkBlue,
+        backgroundColor:colors.white,
         marginVertical:9,
-        borderTopRightRadius:10,
-        borderTopLeftRadius:10,
-        borderWidth:1,
-        borderColor:'black',
-        borderBottomLeftRadius:10,
-        borderBottomRightRadius:10,
+        borderRadius:15,
         shadowColor: "#000",
-shadowOffset: {
-	width: 0,
-	height: 5,
-},
-shadowOpacity: 0.34,
-shadowRadius: 6.27,
-
-elevation: 10,
+        shadowOffset: {
+	        width: 0,
+	        height: 5,
+        },
+        shadowOpacity: 0.34,
+        elevation: 10,
+        
     },
     image:{
-        borderTopLeftRadius:10,
-        borderTopRightRadius:10,
-        borderBottomRightRadius:10,
-        borderBottomLeftRadius:10,
+        borderRadius:15,
         height:150,
     },
     restaurantName:{
         paddingLeft:10,
         fontSize:20,
         fontWeight:'bold',
-        color:"white",
+        color:colors.black,
         marginTop:5,
     },
     address:{
@@ -85,7 +76,7 @@ elevation: 10,
         fontSize:16,
         flex:12,
         paddingTop:5,
-        color:"white",
+        color:colors.black,
         paddingVertical:10,
 
     }

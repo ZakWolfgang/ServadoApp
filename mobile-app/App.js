@@ -27,10 +27,14 @@ const Stack = createStackNavigator();
     }
 }
 */
-function App() {
+export default function App() {
   return (
     <NavigationContainer style={styles.container}>
       <Stack.Navigator>
+      <Stack.Group 
+       screenOptions={{ headerStyle: { backgroundColor: '#f0cea0', height:120,} }}
+      >
+              
         <Stack.Screen
           name="Login"
           component={LoginScreen}
@@ -51,6 +55,7 @@ function App() {
           name="Payment"
           component={PaymentScreen}
         />
+      </Stack.Group>
       </Stack.Navigator> 
     </NavigationContainer>
   );
@@ -79,5 +84,3 @@ const styles = StyleSheet.create({
   },
 });
 
-
-export default App;
