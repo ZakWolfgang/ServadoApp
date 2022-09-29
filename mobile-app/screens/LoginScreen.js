@@ -1,9 +1,12 @@
 import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState } from 'react'
-import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import { KeyboardAvoidingView, Image, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
 
 import { colors } from '../global/styles.js';
 import { auth } from '../firebase'
+import image from '../images/logo-color.png'
+import { ScreenWidth } from '@rneui/base';
+
 
 const LoginScreen = () => {
   const [email, setEmail] = useState('')
@@ -48,7 +51,11 @@ const LoginScreen = () => {
     >
       <View style={styles.inputContainer}>
 
-        <Text>Welcome to Milan Mondayz</Text>
+        <Image
+          style={styles.logo}
+          source={image}
+
+        />
 
         <TextInput
           placeholder="Email"
@@ -139,4 +146,12 @@ const styles = StyleSheet.create({
     fontWeight: '700',
     fontSize: 16,
   },
+  logo:{
+    width:300,
+    height:300,
+    borderRadius:1000,
+    marginBottom:50,
+    margin:21
+
+  }
 })

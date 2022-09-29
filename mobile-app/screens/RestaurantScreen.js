@@ -53,7 +53,7 @@ export default function RestaurantScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,    
-    backgroundColor:colors.tan,
+    backgroundColor:colors.yellow,
     alignItems: 'center',
   },
   cardView: {

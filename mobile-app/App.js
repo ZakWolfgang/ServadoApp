@@ -32,7 +32,7 @@ export default function App() {
     <NavigationContainer style={styles.container}>
       <Stack.Navigator>
       <Stack.Group 
-       screenOptions={{ headerStyle: { backgroundColor: '#f0cea0', height:120,} }}
+       screenOptions={{ headerStyle: { backgroundColor:'#f3a712' , height:120,} }}
       >
               
         <Stack.Screen
