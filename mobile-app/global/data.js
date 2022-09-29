@@ -1,0 +1,42 @@
+export const restaurantData = [
+    {restaurantName:"Milan Mondayz", 
+    businessAddress:"The Steak House of Hammond",
+    images:require('../images/temp.jpg'),
+    productData:[{name:"BBQ Chicken Plate with Sides", 
+    images:require('../images/temp.jpg'),
+    price:12.00}],
+    id:0},
+
+    {restaurantName:"Nick's Cajun Flavors", 
+    businessAddress:"123 Hammond Road",
+    images:require('../images/temp.jpg'),
+    productData:[{name:"Crawfish Etouffee", 
+    price:13.99}],
+    images:require('../images/temp.jpg'),
+    id:1},
+
+    {restaurantName:"Pete's Pizzera", 
+    businessAddress:"567 Pizza Place",
+    images:require('../images/temp.jpg'),
+    productData:[{name:"Buffulo Chicken Pizza", 
+    price:14.50}],
+    images:require('../images/temp.jpg'),
+    id:2},
+
+    {restaurantName:"Hot Hogs Grill", 
+    businessAddress:"The Steak House of Hammond",
+    images:require('../images/temp.jpg'),
+    productData:[{name:"Brisket Plate with Sides", 
+    price:10.99}],
+    images:require('../images/temp.jpg'),
+    id:3},
+
+    {restaurantName:"Meat U There", 
+    businessAddress:"The Steak House of Hammond",
+    images:require('../images/temp.jpg'),
+    productData:[{name:"Cheese Burger with Fries", 
+    price:12.49}],
+    images:require('../images/temp.jpg'),
+    id:4},
+    
+];

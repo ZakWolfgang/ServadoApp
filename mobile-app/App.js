@@ -1,39 +1,60 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Button, Component} from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { useNavigation } from '@react-navigation/core'
+import { createStackNavigator } from '@react-navigation/stack';
 
 import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
-import Tabs from './navigation/Tabs';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import SettingsScreen from './screens/SettingsScreen';
+import RestaurantScreen from './screens/RestaurantScreen';
+import MenuScreen from './screens/MenuScreen';
+import PaymentScreen from './screens/PaymentScreen';
+import { auth } from './firebase'
 
-const Stack = createNativeStackNavigator();
-const Tab = createBottomTabNavigator();
+import colors from './global/styles';
+import Header from './components/Header';
 
-const App = () => {
+const Stack = createStackNavigator();
+
+/*function logOut() {
+  const navigation = useNavigation()
+    const handleSignOut = () => {
+      auth
+        .signOut()
+        .then(() => {
+          navigation.navigate("Login")
+        })
+        .catch(error => alert(error.message))
+    }
+}
+*/
+function App() {
   return (
-    <NavigationContainer>
-      <Tab.Navigator>
-      <Tab.Screen
+    <NavigationContainer style={styles.container}>
+      <Stack.Navigator>
+        <Stack.Screen
           name="Login"
           component={LoginScreen}
-          options={{
-            // hide the bottom tab bar on Product Screen
-            tabBarStyle: { display: "none" },
-          }}
         />
-      <Tab.Screen
-        name="Home"
-        component={HomeScreen}
-      />
-      </Tab.Navigator>
+        <Stack.Screen
+         name="Home"
+          component={HomeScreen}
+        />
+        <Stack.Screen
+          name="Restaurants"
+          component={RestaurantScreen}
+        />
+        <Stack.Screen
+          name="Menu"
+          component={MenuScreen}
+        />
+        <Stack.Screen
+          name="Payment"
+          component={PaymentScreen}
+        />
+      </Stack.Navigator> 
     </NavigationContainer>
-
-    
-  
   );
+
 }
 
 const styles = StyleSheet.create({
@@ -43,6 +64,20 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  button: {
+    backgroundColor: '#0782F9',
+    width: '60%',
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 40,
+  },
+  buttonText: {
+    color: 'white',
+    fontWeight: '700',
+    fontSize: 16,
+  },
 });
+
 
 export default App;

@@ -1,6 +1,8 @@
 import { useNavigation } from '@react-navigation/core'
 import React, { useEffect, useState } from 'react'
 import { KeyboardAvoidingView, StyleSheet, Text, TextInput, TouchableOpacity, View } from 'react-native'
+
+import { colors } from '../global/styles.js';
 import { auth } from '../firebase'
 
 const LoginScreen = () => {
@@ -70,11 +72,12 @@ const LoginScreen = () => {
         >
           <Text style={styles.buttonText}>Login</Text>
         </TouchableOpacity>
+
         <TouchableOpacity
           onPress={handleSignUp}
-          style={[styles.button, styles.buttonOutline]}
+          style={styles.button}
         >
-          <Text style={styles.buttonOutlineText}>Register</Text>
+          <Text style={styles.buttonText}>Register</Text>
         </TouchableOpacity>
       </View>
 
@@ -94,12 +97,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
+    backgroundColor:colors.yellow
   },
   inputContainer: {
     width: '80%'
   },
   input: {
-    backgroundColor: 'white',
+    backgroundColor:'white',
     paddingHorizontal: 15,
     paddingVertical: 10,
     borderRadius: 10,
@@ -112,11 +116,12 @@ const styles = StyleSheet.create({
     marginTop: 40,
   },
   button: {
-    backgroundColor: '#0782F9',
+    backgroundColor:colors.darkBlue,
     width: '100%',
     padding: 15,
     borderRadius: 10,
     alignItems: 'center',
+    marginTop: 5,
   },
   buttonOutline: {
     backgroundColor: 'white',

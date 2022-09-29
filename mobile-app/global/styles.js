@@ -7,3 +7,7 @@ export const colors = {
     white: '#EEF4ED',
 
 }
+
+export const parameters = {
+    headerHeight: 50,
+}
