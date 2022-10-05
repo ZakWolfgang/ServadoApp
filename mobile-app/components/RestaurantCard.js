@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     image:{
         borderRadius:15,
         height:150,
+
     },
     restaurantName:{
         paddingLeft:10,
