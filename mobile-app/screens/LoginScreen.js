@@ -17,7 +17,7 @@ const LoginScreen = () => {
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged(user => {
       if (user) {
-        navigation.navigate("Home")
+        navigation.navigate("Restaurants")
       }
     })
 
@@ -90,7 +90,7 @@ const LoginScreen = () => {
 
       <View>
         <TouchableOpacity>
-          <Text>Forgot Password?</Text>
+          {/*<Text>Forgot Password?</Text>*/}
         </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>

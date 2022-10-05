@@ -1,73 +1,127 @@
-import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/core'
-import React from 'react'
+import { StyleSheet, Text, View, Button, FlatList, TouchableOpacity, Dimensions } from 'react-native'
+import React,{Component } from 'react'
 
+
+import { restaurantData, productData } from '../global/data';
+import MenuCard from '../components/MenuCard';
 import { colors } from '../global/styles.js';
 
-
-const data = [
-  { id: '1', title: 'BBQ Chicken' },
-  { id: '2', title: "Steak and Potatos" },
-  { id: '3', title: "Salmon and Rice" },
-  { id: '4', title: "Gumbo"}
-];
+const SCREEN_WIDTH = Dimensions.get('window').width
+const initialLayout = SCREEN_WIDTH;
 
 
-
-
-const MenuScreen = () => {
-  const navigation = useNavigation()
-  return (
-    <View style={styles.container}>
-      <Button
-        title="Go to Payment"
-        onPress={() => navigation.navigate('Payment')}
-      />
-      <FlatList
-            data={data}
-            keyExtractor={item => item.id}
-            renderItem={({ item }) => (
-              <View style={styles.listItem}>
-              <TouchableOpacity onPress={() => navigation.navigate('Payment')}>
-                <Text style={styles.listItemText}>{item.title}</Text> 
-              </TouchableOpacity>
+export default function MenuScreen({navigation, productData}) {
+    return (
+      <View style={styles.container}>
+        <View style={styles.cardView}>
+          {/*<Button
+            title="Go to Payment"
+            onPress={() => navigation.navigate('Payment')}
+    />*/}
+        <View style ={styles.headerTextView}>
+          <Text style ={styles.headerText}>What Do You Want To Eat?</Text>
+        </View> 
+        <View>
+        <View style ={{flex:1}}>
+            <View style ={styles.menuCard}>
+                <FlatList 
+                    style={{marginTop:10, marginBottom:10}}
+                    data = {restaurantData}
+                    keyExtractor = {(item,index)=>index.toString()}
+                    renderItem = {({item,index})=>(
+                      <MenuCard 
+                        meal ={item.meal}
+                        price ={item.price}
+                        onPressMenuCard={()=>{navigation.navigate("Payment",{id:index,restaurant:item.restaurantName})}}
+                      />
+                    )}
+                />
+            </View>
+            <TouchableOpacity>
+              <View style ={styles.cartContainer}>
+                <View style ={styles.cartCounterContainer}>
+                  <Text style ={styles.cartText}>View Cart</Text>
+                    <View style ={styles.cartCounter}>
+                      <Text style ={styles.cartNum}>0</Text>
+                    </View>
+                </View>
               </View>
-            )}
-          />
-   
-    </View>
+            </TouchableOpacity>
+        </View>
+        </View>
+        </View>
+      </View>
   )
 }
-
-export default MenuScreen
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor:colors.darkBlue,
+    backgroundColor:colors.yellow,
     alignItems: 'center'
   },
-  text: {
-    fontSize: 20,
-    color: '#101010',
-    marginTop: 60,
-    fontWeight: '700'
-  },
-  listItem: {
-    marginTop: 20,
-    paddingVertical: 40,
-    paddingHorizontal: 70,
-    alignItems: 'center',
+  cardView: {
+    alignItems:'center',
     backgroundColor:colors.white,
-    width: '100%',
-    borderRadius: 20,
-    shadowOffset: {width: -2, height: 4},  
-    shadowColor: '#171717',  
-    shadowOpacity: 0.4,  
-    shadowRadius: 3,  
+    width:'100%',
+    borderRadius:30,
   },
-  listItemText: {
-    fontSize: 25
-  }
-})
 
+  headerText:{
+    color:colors.darkBlue,
+    fontSize:25,
+    fontWeight:"bold",
+    
+  },
+  headerTextView:{
+    alignItems:'center',
+    width:'100%',
+    //backgroundColor:colors.darkBlue,
+    paddingVertical:3,
+    paddingTop:20
+    
+  },
+  menuCard:{
+    marginTop:5,
+    paddingBottom:20,
+    width:'100%'
+
+  },
+  cartContainer:{
+    backgroundColor:'white',
+    height:50,
+    alignContent:"center",
+    marginBottom:0,
+    justifyContent:"center"
+        
+  },
+
+  cartCounterContainer:{
+    flexDirection:"row",
+    justifyContent:"space-between",
+    alignItems:"center"
+  },
+
+  cartText:{
+    padding:10,
+    fontWeight:"bold",
+    fontSize:18,
+    color:"black"
+  },
+
+  cartCounter:{ 
+    borderWidth:1,
+    marginRight:10,
+    borderColor:"black",
+    borderRadius:6,
+    paddingBottom:2
+  },
+
+  cartNum:{
+    paddingHorizontal:3,
+    fontWeight:"bold",
+    fontSize:18,
+    color:"black",
+  },
+  
+})

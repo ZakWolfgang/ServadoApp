@@ -39,10 +39,10 @@ export default function App() {
           name="Login"
           component={LoginScreen}
         />
-        <Stack.Screen
-         name="Home"
+        {/*<Stack.Screen
+          name="Home"
           component={HomeScreen}
-        />
+  />*/}
         <Stack.Screen
           name="Restaurants"
           component={RestaurantScreen}
