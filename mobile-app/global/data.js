@@ -1,10 +1,10 @@
 export const restaurantData = [
     {restaurantName:"Milan Mondayz", 
     businessAddress:"The Steak House of Hammond",
-    images:require('../images/Food1.jpg'),
+    images:require('../images/milanpic.jpg'),
     //productData:[{
     meal:"BBQ Chicken Plate with Sides", 
-    //images:require('../images/milan.jpeg'),
+    foodImages:require('../images/Food1.jpg'),
     price:12.00,
     id:0},
 
@@ -14,7 +14,7 @@ export const restaurantData = [
     //productData:[{
     meal:"Crawfish Etouffee", 
     price:13.99,
-    //images:require('../images/cajun.jpeg'),
+    foodImages:require('../images/crawfishEto.jpeg'),
     id:1},
 
     {restaurantName:"Pete's Pizzera", 
@@ -23,7 +23,7 @@ export const restaurantData = [
     //productData:[{
     meal:"Buffulo Chicken Pizza", 
     price:14.50,
-    //images:require('../images/temp.jpg'),
+    foodImages:require('../images/buffpizza.jpeg'),
     id:2},
 
     {restaurantName:"Hot Hogs Grill", 
@@ -32,7 +32,7 @@ export const restaurantData = [
     //productData:[{
     meal:"Brisket Plate with Sides", 
     price:10.99,
-    //images:require('../images/temp.jpg'),
+    foodImages:require('../images/brisket.jpeg'),
     id:3},
 
     {restaurantName:"Meat U There", 
@@ -41,7 +41,7 @@ export const restaurantData = [
     //productData:[{
     meal:"Cheese Burger with Fries", 
     price:12.49,
-    //images:require('../images/temp.jpg'),
+    foodImages:require('../images/burgernfries.jpeg'),
     id:4},
     
 ];

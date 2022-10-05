@@ -7,7 +7,7 @@ import MenuCard from '../components/MenuCard';
 import { colors } from '../global/styles.js';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
-const initialLayout = SCREEN_WIDTH;
+//const initialLayout = SCREEN_WIDTH;
 
 
 export default function MenuScreen({navigation, productData}) {
@@ -30,6 +30,8 @@ export default function MenuScreen({navigation, productData}) {
                     keyExtractor = {(item,index)=>index.toString()}
                     renderItem = {({item,index})=>(
                       <MenuCard 
+                        screenWidth={SCREEN_WIDTH*.9}
+                        images={item.foodImages}
                         meal ={item.meal}
                         price ={item.price}
                         onPressMenuCard={()=>{navigation.navigate("Payment",{id:index,restaurant:item.restaurantName})}}
@@ -83,8 +85,7 @@ const styles = StyleSheet.create({
   },
   menuCard:{
     marginTop:5,
-    paddingBottom:20,
-    width:'100%'
+    paddingBottom:150,
 
   },
   cartContainer:{

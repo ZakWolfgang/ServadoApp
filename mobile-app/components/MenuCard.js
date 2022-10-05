@@ -6,10 +6,17 @@ export default function MenuCard({
     onPressMenuCard,
     meal,
     price,
+    images,
+    screenWidth
     }){
     return(
         <TouchableOpacity onPress={onPressMenuCard}>
-           <View style ={styles.container}>
+           <View style ={{...styles.container, width:screenWidth}}>
+                <Image
+                    style={{...styles.image, width:screenWidth*.93}}
+                    source= {images}
+                />
+
                 <Text style ={styles.meal}>{meal}</Text>
                 <Text style = {styles.price}>${price}</Text>
            </View> 
@@ -20,12 +27,23 @@ export default function MenuCard({
 
 const styles =StyleSheet.create({
     container:{
+        flex:1,
         backgroundColor:"white",
         elevation:4,
-        shadowOpacity:0.4,
+        shadowOpacity:0.5,
         shadowColor:"black",
         margin:7,
-        padding:15
+        padding:15,
+        borderRadius:30,
+        marginVertical:9
+        
+        
+    },
+    image:{
+        borderRadius:15,
+        height:150,
+        
+
     },
 
     meal: {
