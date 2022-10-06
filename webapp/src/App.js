@@ -1,34 +1,46 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
-import Signin from "./components/auth/Signin";
-import Signup from "./components/auth/Signup";
-import EmailVerification from "./components/auth/EmailVerification";
-import Home from "./components/Home";
-import Navbar from "./components/user/Navbar";
-import ForgetPassword from "./components/auth/ForgetPassword";
-import ConfirmPassword from "./components/auth/ConfirmPassword";
-import NotFound from "./components/NotFound";
+import './App.css'
+import LoggedIn from './LoggedIn'
+import React, {useEffect, useState} from "react";
 import { useAuth } from "./hooks";
-import AdminNavigator from "./navigator/AdminNavigator";
+import {Link, Route, Routes, useNavigate} from "react-router-dom";
+import './Landing.css'
+import Nav from "react-bootstrap/Nav";
+import Login from "./NotLoggedIn/Login";
+import Signup from "./NotLoggedIn/Signup";
+import Landing from "./Landing";
 
-export default function App() {
-  const { authInfo } = useAuth();
-  const isAdmin = authInfo.profile?.role === "admin";
+function App() {
 
-  if (isAdmin) return <AdminNavigator />;
 
-  return (
-    <>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/auth/signin" element={<Signin />} />
-        <Route path="/auth/signup" element={<Signup />} />
-        <Route path="/auth/verification" element={<EmailVerification />} />
-        <Route path="/auth/forget-password" element={<ForgetPassword />} />
-        <Route path="/auth/reset-password" element={<ConfirmPassword />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </>
-  );
+    const {handleLogin, authInfo} = useAuth();
+    const {isPending, isLoggedIn} = authInfo;
+    const navigate = useNavigate();
+
+    const isAdmin = authInfo.profile?.role === ("admin" || "user");
+
+    if (isLoggedIn) return <LoggedIn/>
+
+    return (
+        <>
+            <Landing/>
+                <div className='inner'>
+                    <Routes>
+                        <Route path="/signin" element={<Login />} />
+                    </Routes>
+                    <Routes>
+                        <Route path="/signup" element={<Signup />} />
+                    </Routes>
+                </div>
+
+        </>
+    );
 }
+export default App;
+
+/*
+{ (isAdmin) ? (
+            <LoggedIn/>
+        ) : (
+            <NotLogged/>
+        )}
+ */

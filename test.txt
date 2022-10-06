@@ -1,1 +1,117 @@
-Test test2 s
+app.js
+
+import React from "react";
+import { Routes, Route } from "react-router-dom";
+import Signin from "./components/auth/Signin";
+import Signup from "./components/auth/Signup";
+import EmailVerification from "./components/auth/EmailVerification";
+import Home from "./components/Home";
+import Navbar from "./components/user/Navbar";
+import ForgetPassword from "./components/auth/ForgetPassword";
+import ConfirmPassword from "./components/auth/ConfirmPassword";
+import NotFound from "./components/NotFound";
+import { useAuth } from "./hooks";
+import AdminNavigator from "./navigator/AdminNavigator";
+
+export default function App() {
+  const { authInfo } = useAuth();
+  const isAdmin = authInfo.profile?.role === "admin";
+
+  if (isAdmin) return <AdminNavigator />;
+
+  return (
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/auth/signin" element={<Signin />} />
+        <Route path="/auth/signup" element={<Signup />} />
+        <Route path="/auth/verification" element={<EmailVerification />} />
+        <Route path="/auth/forget-password" element={<ForgetPassword />} />
+        <Route path="/auth/reset-password" element={<ConfirmPassword />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+}
+
+
+
+
+index.css
+
+.spin-button-none::-webkit-outer-spin-button,
+.spin-button-none::-webkit-inner-spin-button {
+  appearance: none;
+}
+
+/*For Firefox*/
+.spin-button-none[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.bounce-custom {
+  animation: bounce-custom 0.5s;
+}
+@keyframes bounce-custom {
+  from,
+  to {
+    transform: scale(1, 1);
+  }
+  25% {
+    transform: scale(0.9, 1.1);
+  }
+  50% {
+    transform: scale(1.1, 0.9);
+  }
+  75% {
+    transform: scale(0.95, 1.05);
+  }
+}
+
+.animate-scale {
+  transform-origin: 0% 0%;
+  animation: scale 0.2s;
+}
+
+.animate-scale-reverse {
+  transform-origin: 0% 0%;
+  animation: scale 0.2s reverse forwards;
+}
+
+@keyframes scale {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+.custom-scroll-bar::-webkit-scrollbar {
+  width: 2px;
+  height: 2px;
+}
+
+/* Track */
+.custom-scroll-bar::-webkit-scrollbar-track {
+  background: #222222;
+}
+
+/* Handle */
+.custom-scroll-bar::-webkit-scrollbar-thumb {
+  background: rgb(224, 201, 251);
+}
+
+/* Handle on hover */
+.custom-scroll-bar::-webkit-scrollbar-thumb:hover {
+  background: rgb(143, 190, 245);
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
