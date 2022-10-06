@@ -10,7 +10,7 @@ import { restaurantData } from '../global/data';
 
 
 export default function RestaurantCard({
-    OnPressFoodCard,
+    OnPressRestaurantCard,
     restaurantName,
     businessAddress,
     images,
@@ -18,7 +18,7 @@ export default function RestaurantCard({
 }) {
 
     return(
-        <TouchableOpacity>
+        <TouchableOpacity onPress={OnPressRestaurantCard}>
             <View style={{...styles.cardView, width:screenWidth}}>
 
                 <Image
@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     image:{
         borderRadius:15,
         height:150,
+
     },
     restaurantName:{
         paddingLeft:10,
