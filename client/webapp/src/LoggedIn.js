@@ -3,7 +3,6 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./LoggedIn/Home";
 import LoggedNav from "./Navigation/LoggedNav";
 import Menu from "./LoggedIn/Menu";
-import SearchMenu from "./Components/admin/SearchMenu";
 import MenuUpload from "./Components/admin/MenuUpload";
 
 function LoggedIn() {
@@ -28,5 +27,11 @@ function LoggedIn() {
         </div>
     );
 }
+
+
+
+
+
+
 
 export default LoggedIn;
