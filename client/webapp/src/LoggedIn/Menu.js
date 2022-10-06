@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import MenuItem from '../components/MenuItem'
+import MenuItem from './MenuItem'
 import './Menu.css'
 import Grid from "@mui/material/Grid";
-import MenuItemList from "../components/MenuItemList";
+import MenuItemList from "../Components/MenuItemList";
 import MenuItem2 from './MenuItem2'
 import MenuItem4 from './MenuItem4'
 import MenuItem5 from './MenuItem5'

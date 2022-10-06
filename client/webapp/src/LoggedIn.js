@@ -3,8 +3,8 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./LoggedIn/Home";
 import LoggedNav from "./Navigation/LoggedNav";
 import Menu from "./LoggedIn/Menu";
-import SearchMenu from "./components/admin/SearchMenu";
-import MenuUpload from "./components/admin/MenuUpload";
+import SearchMenu from "./Components/admin/SearchMenu";
+import MenuUpload from "./Components/admin/MenuUpload";
 
 function LoggedIn() {
 

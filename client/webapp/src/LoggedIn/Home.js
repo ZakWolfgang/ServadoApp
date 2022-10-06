@@ -1,5 +1,5 @@
 import React from 'react';
-import FoodCarousel from "../components/FoodCarousel";
+import FoodCarousel from "../Components/FoodCarousel";
 import './Home.css'
 
 function Home() {
