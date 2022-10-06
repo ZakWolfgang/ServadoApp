@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+/*import React, { useState } from "react";
 import { FileUploader } from "react-drag-drop-files";
 import { AiOutlineCloudUpload } from "react-icons/ai";
 import { uploadMenuItem } from "../../api/menu";
@@ -117,3 +117,4 @@ const UploadProgress = ({ width, message, visible }) => {
     </div>
   );
 };
+*/
