@@ -1,5 +1,6 @@
 import './App.css'
 import LoggedIn from './LoggedIn'
+import LoggedIn2 from './LoggedIn2'
 import React, {useEffect, useState} from "react";
 import { useAuth } from "./hooks";
 import {Link, Route, Routes, useNavigate} from "react-router-dom";
@@ -16,12 +17,13 @@ function App() {
     const {isPending, isLoggedIn} = authInfo;
     const navigate = useNavigate();
 
-    const isAdmin = authInfo.profile?.role === ("admin" || "user");
+    const isAdmin = authInfo.profile?.role === ("admin");
 
-    if (isLoggedIn) return <LoggedIn/>
-
+        if (isLoggedIn) return <LoggedIn/>
+    
     return (
         <>
+        <div className='app'>
             <Landing/>
                 <div className='inner'>
                     <Routes>
@@ -31,7 +33,7 @@ function App() {
                         <Route path="/signup" element={<Signup />} />
                     </Routes>
                 </div>
-
+        </div>
         </>
     );
 }
