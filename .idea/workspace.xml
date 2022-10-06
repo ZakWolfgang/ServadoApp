@@ -1,40 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad3b8dc9-fbc0-4102-902c-269538f4247e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/webapp/src/App.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Landing.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Landing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/Home.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/Home.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/Menu.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/Menu.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/MenuItem2.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/MenuItem3.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/MenuItem4.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/LoggedIn/MenuItem5.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Navigation/LoggedNav.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Navigation/Nav.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/NotLogged.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/NotLoggedIn/Login.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/NotLoggedIn/Login.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/NotLoggedIn/Signup.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/NotLoggedIn/Signup.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Pictures/Food1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Pictures/Food2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Pictures/Food3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/Pictures/Logo.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/components/Carousel.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/components/FoodCarousel.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/webapp/src/components/MenuItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/test.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/components/user/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/components/user/Navbar.jsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/webapp/src/index.css" afterDir="false" />
-    </list>
+    <list default="true" id="ad3b8dc9-fbc0-4102-902c-269538f4247e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -81,7 +48,7 @@
       <workItem from="1664299082411" duration="1312000" />
       <workItem from="1664390186391" duration="4805000" />
       <workItem from="1664820597390" duration="5413000" />
-      <workItem from="1665010885357" duration="6160000" />
+      <workItem from="1665010885357" duration="6661000" />
     </task>
     <servers />
   </component>
