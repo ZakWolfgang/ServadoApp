@@ -1,5 +1,4 @@
 import './App.css'
-import './NotLogged.css'
 import LoggedIn from './LoggedIn'
 import LoggedIn2 from './LoggedIn2'
 import React, {useEffect, useState} from "react";
@@ -26,12 +25,14 @@ function App() {
     
     return (
         <>
-            <Routes>
-                <Route path="/signin" element={<SigninPage />} />
-            </Routes>
-            <Routes>
-                <Route path="/signup" element={<SignupPage />} />
-            </Routes>
+            <div className='app'>
+                <Routes>
+                    <Route path="/signin" element={<SigninPage />} />
+                </Routes>
+                <Routes>
+                    <Route path="/signup" element={<SignupPage />} />
+                </Routes>
+            </div>
         </>
     );
 }
