@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Food1 from '../Pictures/Food1.jpg'
+import crawfishEto from '../Pictures/crawfishEto.jpeg'
 
 export default function MediaCard() {
 
@@ -16,15 +16,15 @@ export default function MediaCard() {
             <CardMedia
                 component="img"
                 height="200"
-                src={Food1}
-                alt="green iguana"
+                src={crawfishEto}
+                alt="crawfishetouffee"
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Chicken Marsala
+                    Crawfish Etouffee
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    This dish is especially rich with sauce n stuff
+                    This dish is an especially rich seafood bowl
                 </Typography>
             </CardContent>
             <CardActions>

@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import './Signup.css'
+import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -43,6 +44,15 @@ export default function SignUp(props) {
 
         const response = await createUser(data2);
         if (response.error) return console.log(response.error);
+
+        axios.post('user/create')
+            .then(response => {
+                console.log(response)
+                navigate('/home')
+            })
+            .catch(err => {
+            console.log(err)
+            })
 
         navigate("/auth/verification", {
             state: { user: response.user },
@@ -111,7 +121,6 @@ export default function SignUp(props) {
                                         id="email"
                                         label="Email Address"
                                         name="email"
-                                        autoComplete="email"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -122,7 +131,6 @@ export default function SignUp(props) {
                                         label="Password"
                                         type="password"
                                         id="password"
-                                        autoComplete="new-password"
                                     />
                                 </Grid>
                             </Grid>
@@ -135,17 +143,12 @@ export default function SignUp(props) {
                                 Sign Up
                             </Button>
                         </Box>
+                        <Link href="/signin" variant="body2">
+                            {"Already have an account? Sign-in"}
+                        </Link>
                     </Box>
                 </Container>
             </ThemeProvider>
         </div>
     );
 }
-
-
-
-
-
-
-
-

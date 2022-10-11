@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import MenuItem from './MenuItem'
 import './Menu.css'
 import Grid from "@mui/material/Grid";
-import MenuItemList from "../Components/MenuItemList";
+import MenuItemList from "../components/MenuItemList";
 import MenuItem2 from './MenuItem2'
 import MenuItem4 from './MenuItem4'
 import MenuItem5 from './MenuItem5'
@@ -38,12 +38,3 @@ function Menu() {
 }
 
 export default Menu;
-
-
-
-
-
-
-
-
-

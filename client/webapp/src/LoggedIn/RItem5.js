@@ -5,7 +5,7 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import buffpizza from '../Pictures/buffpizza.jpeg'
+import burger from '../Pictures/burger.jpeg'
 
 export default function MediaCard() {
 
@@ -16,15 +16,15 @@ export default function MediaCard() {
             <CardMedia
                 component="img"
                 height="200"
-                src={buffpizza}
-                alt="buffulopizza"
+                src={burger}
+                alt="green iguana"
             />
             <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                    Buffulo Chicken Pizza
+                    Meet U There
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    Best pizza you'll ever have!
+                    Great American burgers
                 </Typography>
             </CardContent>
             <CardActions>

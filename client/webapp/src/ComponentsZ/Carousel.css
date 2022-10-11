@@ -1,0 +1,10 @@
+.carousel {
+    width: 70vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.car {
+    color: #e63462;
+}

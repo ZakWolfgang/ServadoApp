@@ -6,6 +6,7 @@ import {
 import Login from './NotLoggedIn/Login'
 import Signup from './NotLoggedIn/Signup'
 import Landing from "./Landing";
+import forkandknife from './Pictures/forkandknife'
 
 function NotLogged() {
 
@@ -16,8 +17,10 @@ function NotLogged() {
     })
 
     return (
-        <div>
-            <Landing/>
+        <div className='notlogged'>
+            <img className='nlpic'
+                src={forkandknife}
+            />
             <Routes>
                 <Route path="/signin" element={<Login />} />
             </Routes>
@@ -27,5 +30,3 @@ function NotLogged() {
         </div>
     );
 }
-
-export default NotLogged;

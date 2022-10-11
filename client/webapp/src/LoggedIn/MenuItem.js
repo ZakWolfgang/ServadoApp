@@ -34,12 +34,3 @@ export default function MediaCard() {
         </Card>
     );
 }
-
-
-
-
-
-
-
-
-

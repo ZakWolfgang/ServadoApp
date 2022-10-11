@@ -2,10 +2,9 @@ import React, {useEffect, useState} from 'react';
 import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./LoggedIn/Home";
 import LoggedNav from "./Navigation/LoggedNav";
-import Menu from "./LoggedIn/Menu";
-import MenuUpload from "./components/admin/MenuUpload";
+import Restaurants from './LoggedIn/Restaurants';
 
-function LoggedIn() {
+function LoggedIn2() {
 
 
     const [showMenuUploadModal, setShowMenuUploadModal] = useState(false);
@@ -21,11 +20,11 @@ function LoggedIn() {
                 <Route path="/home" element={<Home />} />
             </Routes>
             <Routes>
-                <Route path="/menu" element={<Menu />} />
+                <Route path="/menu" element={<Restaurants />} />
             </Routes>
 
         </div>
     );
 }
 
-export default LoggedIn;
+export default LoggedIn2;
