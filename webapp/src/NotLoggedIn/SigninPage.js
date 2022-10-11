@@ -1,6 +1,5 @@
 import './SigninPage.css'
 import React, {useEffect, useState} from "react";
-import {Link, Route, Routes, useNavigate} from "react-router-dom";
 import Login from "./Login";
 import homepic from '../Pictures/homepic.jpg'
 
