@@ -3,10 +3,14 @@
   <component name="ChangeListManager">
     <list default="true" id="ad3b8dc9-fbc0-4102-902c-269538f4247e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/webapp/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/App.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webapp/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/Landing.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/Landing.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/LoggedIn2.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/Navigation/Nav.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/Navigation/Nav.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/NotLogged.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/NotLogged.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

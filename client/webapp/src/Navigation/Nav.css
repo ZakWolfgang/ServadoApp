@@ -1,15 +1,16 @@
 .navlinks {
     text-decoration: none;
-    color: white;
+    color: #e63462;
 }
+
 .navlinks:hover {
-    color: #f4d58d;
+    color:black;
+
 }
 
 .navbar {
     font-size: 2vh;
     height: 7vh;
-
 }
 
 .button {
