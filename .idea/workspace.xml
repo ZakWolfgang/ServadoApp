@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="ad3b8dc9-fbc0-4102-902c-269538f4247e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/LoggedIn.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/LoggedIn.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/LoggedIn/Menu.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/LoggedIn/Menu.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/LoggedIn/MenuItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/LoggedIn/MenuItem.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/Navigation/LoggedNav.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/Navigation/LoggedNav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/NotLoggedIn/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/NotLoggedIn/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/webapp/src/NotLoggedIn/Signup.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/webapp/src/NotLoggedIn/Signup.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mobile-app/images/brisketplate.jpeg" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2FMPeygP93h1HaZmSvM1gnNN3fM" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/zgres/cmps411Project&quot;,
+    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2022.2.1\\plugins\\JavaScriptLanguage\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\zgres\cmps411Project\webapp\src\LoggedIn" />
+      <recent name="C:\Users\zgres\cmps411Project\webapp\src\components\user" />
+      <recent name="C:\Users\zgres\cmps411Project\webapp\src\components" />
+      <recent name="C:\Users\zgres\cmps411Project\webapp\src" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="ad3b8dc9-fbc0-4102-902c-269538f4247e" name="Changes" comment="" />
+      <created>1664299080375</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1664299080375</updated>
+      <workItem from="1664299082411" duration="1312000" />
+      <workItem from="1664390186391" duration="4805000" />
+      <workItem from="1664820597390" duration="5413000" />
+      <workItem from="1665010885357" duration="6789000" />
+      <workItem from="1665018186106" duration="5873000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
