@@ -8,6 +8,7 @@ import MenuItem4 from './MenuItem4'
 import MenuItem5 from './MenuItem5'
 import MenuItem3 from './MenuItem3'
 import {useMenu} from "../hooks";
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
 
 let currentPageNo = 0;
 
@@ -24,17 +25,18 @@ function Menu() {
         fetchMenu(currentPageNo);
     }, []);
 
-    return (
-        <div className='menu'>
-            <Grid container spacing={2}>
-                <Grid item xs ={4}><MenuItem/></Grid>
-                <Grid item xs ={4}><MenuItem2/></Grid>
-                <Grid item xs ={4}><MenuItem3/></Grid>
-                <Grid item xs ={4}><MenuItem4/></Grid>
-                <Grid item xs ={4}><MenuItem5/></Grid>
-            </Grid>
-        </div>
-    );
+
+return (
+    <div className='menu'>
+        <Grid container spacing={2}>
+            <Grid item xs ={4}><MenuItem/></Grid>
+            <Grid item xs ={4}><MenuItem2/></Grid>
+            <Grid item xs ={4}><MenuItem3/></Grid>
+            <Grid item xs ={4}><MenuItem4/></Grid>
+            <Grid item xs ={4}><MenuItem5/></Grid>
+        </Grid>
+    </div>
+);
 }
 
 export default Menu;

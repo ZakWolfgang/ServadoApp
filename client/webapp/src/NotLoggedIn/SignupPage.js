@@ -8,22 +8,14 @@ function SignupPage() {
     
     return (
         <>
-        <div className='notlogged'>
-            <div className='nlinner'>
-                <Signup/>
-                <div className='sexophone'>
-                    <div className='lucario'>
-                        <h3 className='nltxt'>Discover</h3>
-                        <h3 className='nltxt1'>New Food</h3>
-                        <h3 className='nltxt1'>New Tastes</h3>
-                        <h3 className='nltxt1'>New Kitchens</h3>
-                    </div>
-                </div>
+        <div className='notloggedsu'>
+            <div className='nlinnersu1'>
             </div>
-            <div className='nlinner'>
-                <img className='nlpic'
-                    src={homepic}
-                />
+            <div className='nlinnersu2'>
+                <div className='buffer'></div>
+                <div className='suinin'>
+                    <Signup/>
+                </div>
             </div>
         </div>
         </>

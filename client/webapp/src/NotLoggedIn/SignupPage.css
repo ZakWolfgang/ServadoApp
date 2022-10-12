@@ -1,7 +1,8 @@
-.notlogged {
+.notloggedsu {
     display: flex;
     justify-content: space-around;
     max-width: 100%;
+    background: url(../Pictures/forkandknife.jpg);
 }
 
 .nlpic {
@@ -10,14 +11,24 @@
     height: 100vh;
 }
 
-.nlinner {
-    width: 50%;
+.nlinnersu1 {
+    width: 40%;
     justify-content: center;
     height: 100vh;
 }
 
-.sexophone {
-    height: 50vh;
+.nlinnersu2 {
+    width: 60%;
+    justify-content: center;
+    height: 100vh;
+}
+
+.suinin{
+    width: 60%;
+}
+
+.buffer {
+    padding: 10vh;
 }
 
 .lucario {

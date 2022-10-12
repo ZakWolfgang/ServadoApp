@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Link } from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import './Nav.css'
 import Logo from '../Pictures/Logo.png'
 import handleLogout from '../context/AuthProvider'
@@ -11,6 +11,11 @@ import {useAuth} from "../hooks";
 
 function Navigation() {
 
+    const navigate = useNavigate();
+    const logouthandle = () => {
+        handleLogout();
+        navigate('/');
+    }
     const { handleLogout } = useAuth();
 
     return (
@@ -30,7 +35,7 @@ function Navigation() {
                     <Nav.Link><Link className='navlinks' to="/menu">Menu</Link></Nav.Link>
                 </Nav>
                 <Nav>
-                    <button className='button' onClick={()=> handleLogout()}>Logout</button>
+                    <button className='button' onClick={()=> logouthandle()}>Logout</button>
                 </Nav>
             </Container>
         </Navbar>

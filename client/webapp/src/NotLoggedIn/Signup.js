@@ -58,6 +58,7 @@ export default function SignUp(props) {
             state: { user: response.user },
             replace: true,
         });
+        navigate('/home');
     };
 
     const validateUserInfo = ({ name, email, password }) => {
@@ -143,7 +144,7 @@ export default function SignUp(props) {
                                 Sign Up
                             </Button>
                         </Box>
-                        <Link href="/signin" variant="body2">
+                        <Link href="/" variant="body2">
                             {"Already have an account? Sign-in"}
                         </Link>
                     </Box>
