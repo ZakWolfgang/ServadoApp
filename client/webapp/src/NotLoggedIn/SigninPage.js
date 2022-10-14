@@ -10,14 +10,12 @@ function SigninPage() {
         <div className='notlogged'>
             <div className='nlinner'>
                 <Login/>
-                <div className='sexophone'>
                     <div className='lucario'>
                         <h3 className='nltxt'>Discover</h3>
                         <h3 className='nltxt1'>New Food</h3>
                         <h3 className='nltxt1'>New Tastes</h3>
                         <h3 className='nltxt1'>New Kitchens</h3>
                     </div>
-                </div>
             </div>
             <div className='nlinner'>
                 <img className='nlpic'

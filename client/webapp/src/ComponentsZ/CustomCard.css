@@ -1,0 +1,11 @@
+.card{
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width:30%;
+}
+
+.text {
+    font-size: 3vh;
+}

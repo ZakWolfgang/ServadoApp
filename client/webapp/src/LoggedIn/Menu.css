@@ -1,3 +1,15 @@
 .menu {
     padding: 10vh;
 }
+
+.header {
+    padding-bottom: 5vh;
+}
+
+.cusgrid {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10vh;
+    margin-right: 30%;
+    margin-left: 30%;
+}

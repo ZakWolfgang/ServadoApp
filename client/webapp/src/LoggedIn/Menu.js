@@ -1,40 +1,36 @@
 import React, {useEffect, useState} from 'react';
-import MenuItem from './MenuItem'
 import './Menu.css'
 import Grid from "@mui/material/Grid";
-import MenuItemList from "../components/MenuItemList";
-import MenuItem2 from './MenuItem2'
-import MenuItem4 from './MenuItem4'
-import MenuItem5 from './MenuItem5'
-import MenuItem3 from './MenuItem3'
-import {useMenu} from "../hooks";
-import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import CustomCard from "../ComponentsZ/CustomCard";
+import ReviewCard from "../ComponentsZ/ReviewCard";
 
 let currentPageNo = 0;
 
 function Menu() {
 
-    const [menu, setMenu] = useState([]);
-    const { fetchMenu, menu: newMenu, fetchPrevPage, fetchNextPage } = useMenu();
-
-    const handleUIUpdate = () => {
-        fetchMenu();
-    };
-
+    const txt = 'hey there'
+    const icon = <i className="fa-solid fa-utensils fa-4x"></i>
     useEffect(() => {
-        fetchMenu(currentPageNo);
     }, []);
 
 
 return (
     <div className='menu'>
-        <Grid container spacing={2}>
-            <Grid item xs ={4}><MenuItem/></Grid>
-            <Grid item xs ={4}><MenuItem2/></Grid>
-            <Grid item xs ={4}><MenuItem3/></Grid>
-            <Grid item xs ={4}><MenuItem4/></Grid>
-            <Grid item xs ={4}><MenuItem5/></Grid>
-        </Grid>
+        <h1 className='header'>My Menu</h1>
+        <div className='cusgrid'>
+                <CustomCard txt={'Meals'} icon={<i className="fa-solid fa-utensils fa-4x"></i>}/>
+                <CustomCard txt={'Appetizers'} icon={<i className="fa-solid fa-bowl-food fa-4x"></i>}/>
+        </div>
+        <div className='cusgrid'>
+            <CustomCard txt={'Beverages'} icon={<i className="fa-solid fa-martini-glass fa-4x"></i>}/>
+            <CustomCard txt={'Desserts'} icon={<i className="fa-solid fa-ice-cream fa-4x"></i>}/>
+        </div>
+        <h1 className='header'>Reviews</h1>
+        <div className='cusgrid'>
+            <ReviewCard txt={'Hot and fast!'} desc={'The food was great and the process was easy'}/>
+            <ReviewCard txt={'Order completely wrong'} desc={'Gave me someone else\'s order'}/>
+            <ReviewCard txt={'Pretty good'} desc={'Happy that I can order from my local restaurants online'}/>
+        </div>
     </div>
 );
 }
