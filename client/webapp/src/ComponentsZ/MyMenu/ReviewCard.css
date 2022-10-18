@@ -1,0 +1,10 @@
+.revcard{
+    padding: 10px;
+    min-width:20%;
+    background: white;
+    border-radius: 10px;
+}
+
+.text {
+    font-size: 3vh;
+}

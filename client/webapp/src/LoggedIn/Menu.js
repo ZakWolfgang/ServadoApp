@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
 import './Menu.css'
 import Grid from "@mui/material/Grid";
-import CustomCard from "../ComponentsZ/CustomCard";
-import ReviewCard from "../ComponentsZ/ReviewCard";
+import CustomCard from "../ComponentsZ/MyMenu/CustomCard";
+import ReviewCard from "../ComponentsZ/MyMenu/ReviewCard";
 
 let currentPageNo = 0;
 
 function Menu() {
 
-    const txt = 'hey there'
-    const icon = <i className="fa-solid fa-utensils fa-4x"></i>
     useEffect(() => {
     }, []);
 
@@ -26,10 +24,10 @@ return (
             <CustomCard txt={'Desserts'} icon={<i className="fa-solid fa-ice-cream fa-4x"></i>}/>
         </div>
         <h1 className='header'>Reviews</h1>
-        <div className='cusgrid'>
-            <ReviewCard txt={'Hot and fast!'} desc={'The food was great and the process was easy'}/>
-            <ReviewCard txt={'Order completely wrong'} desc={'Gave me someone else\'s order'}/>
-            <ReviewCard txt={'Pretty good'} desc={'Happy that I can order from my local restaurants online'}/>
+        <div className='cusgridrev'>
+            <ReviewCard value={5} name={'Zachary S'} txt={'Fast and delicious!'} desc={'this shi bussin'}/>
+            <ReviewCard value={1} name={'Alex S'} txt={'Wrong order'} desc={'i am not happy'}/>
+            <ReviewCard value={3} name={'Clindell T'} txt={'Enjoyed my experience'} desc={'favorite restaurant, always has always will be'}/>
         </div>
     </div>
 );
