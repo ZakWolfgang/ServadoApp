@@ -3,6 +3,7 @@ import {Navigate, Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./LoggedIn/Home";
 import LoggedNav from "./Navigation/LoggedNav";
 import Menu from "./LoggedIn/Menu";
+import Profile from './LoggedIn/Profile'
 import MenuUpload from "./components/admin/MenuUpload";
 
 function LoggedIn() {
@@ -22,6 +23,9 @@ function LoggedIn() {
             </Routes>
             <Routes>
                 <Route path="/menu" element={<Menu />} />
+            </Routes>
+            <Routes>
+                <Route path="/profile" element={<Profile />}/>
             </Routes>
 
         </div>
