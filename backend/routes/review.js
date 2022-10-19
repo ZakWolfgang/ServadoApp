@@ -8,9 +8,9 @@ const {
 const { isAuth } = require("../middlewares/auth");
 const { validateRatings, validate } = require("../middlewares/validator");
 
-router.post("/add/:menuItemId", isAuth, validateRatings, validate, addReview);
+router.post("/add/:restaurantId", isAuth, validateRatings, validate, addReview);
 router.patch("/:reviewId", isAuth, validateRatings, validate, updateReview);
 router.delete("/:reviewId", isAuth, removeReview);
-router.get("/get-reviews-by-menuItem/:menuItemId", getReviewsByMenuItem);
+router.get("/get-reviews-by-restuarant/:restaurantId", getReviewsByMenuItem);
 
 module.exports = router;

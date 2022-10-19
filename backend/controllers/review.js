@@ -77,7 +77,7 @@ exports.removeReview = async (req, res) => {
   res.json({ message: "Review removed successfully." });
 };
 
-exports.getReviewsByMenuItem = async (req, res) => {
+exports.getReviewsByRestuarant = async (req, res) => {
   const { menuItemId } = req.params;
 
   if (!isValidObjectId(menuItemId))

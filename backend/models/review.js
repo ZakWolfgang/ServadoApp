@@ -8,7 +8,7 @@ const reviewSchema = mongoose.Schema({
   },
   parentMenu: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Menu",
+    ref: "Restuarant",
     required: true,
   },
   content: {

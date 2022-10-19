@@ -28,9 +28,19 @@ exports.uploadImageToCloud = async (file) => {
   return { url, public_id };
 };
 
+exports.formatMenu = (menu) => {
+  const { name, description, poster } = menu;
+  return {
+    id: _id,
+    name,
+    description,
+    poster: poster?.url,
+  };
+};
+
 exports.parseData = (req, res, next) => {
-  const { tags } = req.body;
-  if (tags) req.body.tags = JSON.parse(tags);
+  const { menu } = req.body;
+  if (menu) req.body.menu = JSON.parse(menu);
 
   next();
 };
