@@ -1,10 +1,10 @@
 import './App.css'
-import LoggedIn from './LoggedIn'
 import React from "react";
 import { useAuth } from "./hooks";
-import {Link, Route, Routes, useNavigate} from "react-router-dom";
+import {Route, Routes, useNavigate} from "react-router-dom";
 import SignupPage from "./NotLoggedIn/SignupPage";
 import SigninPage from './NotLoggedIn/SigninPage';
+import LoggedIn from './LoggedIn'
 
 function App() {
 
