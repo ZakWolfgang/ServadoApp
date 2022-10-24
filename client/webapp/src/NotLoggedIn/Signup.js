@@ -1,5 +1,6 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import './Signup.css'
+import axios from 'axios'
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,19 +16,72 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useEffect} from "react";
+import { useNavigate } from "react-router-dom";
+import { createUser } from "../api/auth";
+import { useAuth, useNotification } from "../hooks";
+import { isValidEmail } from "../utils/helper";
 
 const theme = createTheme();
 
 export default function SignUp(props) {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('address'),
-            password: data.get('password'),
-            foodType: data.get('foodType'),
+    const navigate = useNavigate();
+    const { authInfo } = useAuth();
+    const { isLoggedIn } = authInfo;
+    const { updateNotification } = useNotification();
+
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const name = data.get('name')
+        const password = data.get('password')
+        const email = data.get('email')
+        const data2 = {name:name, password:password, email:email}
+        const { ok, error } = validateUserInfo(data2);
+
+        if (!ok) return updateNotification("error", error);
+
+        const response = await createUser(data2);
+        if (response.error) return console.log(response.error);
+
+        axios.post('user/create')
+            .then(response => {
+                console.log(response)
+                navigate('/home')
+            })
+            .catch(err => {
+            console.log(err)
+            })
+
+        navigate("/auth/verification", {
+            state: { user: response.user },
+            replace: true,
         });
+        navigate('/home');
     };
+
+    const validateUserInfo = ({ name, email, password }) => {
+        const isValidName = /^[a-z A-Z]+$/;
+
+        if (!name) return { ok: false, error: "Name is missing!" };
+        if (!isValidName.test(name)) return { ok: false, error: "Invalid name!" };
+
+        if (!email) return { ok: false, error: "Email is missing!" };
+        if (!isValidEmail(email)) return { ok: false, error: "Invalid email!" };
+
+        if (!password) return { ok: false, error: "Password is missing!" };
+        if (password.length < 8)
+            return { ok: false, error: "Password must be 8 characters long!" };
+
+        return { ok: true };
+    };
+
+    useEffect(() => {
+        // we want to move our user to somewhere else
+        if (isLoggedIn) navigate("/");
+    }, [isLoggedIn]);
+
 
     return (
         <div className='signupbcg'>
@@ -53,36 +107,13 @@ export default function SignUp(props) {
                                 <Grid item xs={12}>
                                     <TextField
                                         autoComplete="given-name"
-                                        name="companyName"
+                                        name="name"
                                         required
                                         fullWidth
-                                        id="companyName"
+                                        id="name"
                                         label="Company Name"
                                         autoFocus
                                     />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <TextField
-                                        autoComplete="address"
-                                        name="address"
-                                        required
-                                        fullWidth
-                                        id="address"
-                                        label="Company Location"
-                                    />
-                                </Grid>
-                                <Grid item xs={12}>
-                                    <Select
-                                        name='foodType'
-                                        fullWidth
-                                        required
-                                        id="food-type"
-                                        label="Food Type"
-                                    >
-                                        <MenuItem value='Italian'>Italian</MenuItem>
-                                        <MenuItem value='Mexican'>Mexican</MenuItem>
-                                        <MenuItem value='Chinese'>Chinese</MenuItem>
-                                    </Select>
                                 </Grid>
                                 <Grid item xs={12}>
                                     <TextField
@@ -91,7 +122,6 @@ export default function SignUp(props) {
                                         id="email"
                                         label="Email Address"
                                         name="email"
-                                        autoComplete="email"
                                     />
                                 </Grid>
                                 <Grid item xs={12}>
@@ -102,7 +132,6 @@ export default function SignUp(props) {
                                         label="Password"
                                         type="password"
                                         id="password"
-                                        autoComplete="new-password"
                                     />
                                 </Grid>
                             </Grid>
@@ -115,6 +144,9 @@ export default function SignUp(props) {
                                 Sign Up
                             </Button>
                         </Box>
+                        <Link href="/" variant="body2">
+                            {"Already have an account? Sign-in"}
+                        </Link>
                     </Box>
                 </Container>
             </ThemeProvider>

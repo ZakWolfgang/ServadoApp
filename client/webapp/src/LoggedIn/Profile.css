@@ -1,0 +1,40 @@
+.profheader {
+    height: 15vh;
+
+}
+
+.currbody {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.title {
+    font-size: 7vh;
+    padding-bottom: 10vh;
+}
+
+.cusform {
+    width: 60%;
+}
+
+.sbs {
+    display: flex;
+}
+
+.proficon {
+    border-radius: 100%;
+    background: #2c5ea0;
+    width: 15vh;
+    height: 15vh;
+    text-align: center;
+    font-size: 9vh;
+}
+
+.fa-user {
+    color: white;
+}
+
+.spacious {
+    margin-left: 5vh;
+    margin-top: 2vh;
+}

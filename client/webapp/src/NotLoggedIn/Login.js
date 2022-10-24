@@ -13,17 +13,40 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import './Login.css'
+import {isValidEmail} from "../utils/helper";
+import {useNavigate} from "react-router-dom";
+import {useAuth, useNotification} from "../hooks";
 
 const theme = createTheme();
 
 export default function SignIn(props) {
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        const data = new FormData(event.currentTarget);
-        console.log({
-            email: data.get('email'),
-            password: data.get('password'),
-        });
+
+    const navigate = useNavigate();
+    const { updateNotification } = useNotification();
+    const { handleLogin, authInfo } = useAuth();
+    const { isPending, isLoggedIn } = authInfo;
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        const data = new FormData(e.currentTarget);
+        const email = data.get('email')
+        const password = data.get('password')
+        const data2 = {password:password, email:email}
+        const { ok, error } = validateUserInfo(data2);
+
+        if (!ok) return updateNotification("error", error);
+        handleLogin(data.get('email'), data.get('password'));
+    };
+
+    const validateUserInfo = ({ email, password }) => {
+        if (!email.trim()) return { ok: false, error: "Email is missing!" };
+        if (!isValidEmail(email)) return { ok: false, error: "Invalid email!" };
+
+        if (!password.trim()) return { ok: false, error: "Password is missing!" };
+        if (password.length < 8)
+            return { ok: false, error: "Password must be 8 characters long!" };
+
+        return { ok: true };
     };
 
     return (
@@ -42,9 +65,7 @@ export default function SignIn(props) {
                         <Avatar sx={{ m: 1, bgcolor: '#13315c' }}>
                             <LockOutlinedIcon />
                         </Avatar>
-                        <Typography component="h1" variant="h5">
-                            Sign in
-                        </Typography>
+                        <h1>Sign-in</h1>
                         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
                             <TextField
                                 margin="normal"
@@ -79,6 +100,9 @@ export default function SignIn(props) {
                                 Sign In
                             </Button>
                         </Box>
+                        <Link href="signup" variant="body2">
+                            {"Don't have an account? Sign Up"}
+                        </Link>
                     </Box>
                 </Container>
             </ThemeProvider>
