@@ -7,6 +7,10 @@ const {
   getRestaurantForUpdate,
   searchRestaurants,
   getLatestUploads,
+  getSingleRestaurant,
+  getRelatedRestaurants,
+  getTopRatedRestaurants,
+  searchPublicRestaurants,
 } = require("../controllers/restaurant");
 const { isAuth, isAdmin } = require("../middlewares/auth");
 const { parseData } = require("../utils/helper");
@@ -51,6 +55,10 @@ router.get(
 router.get("/search", isAuth, isAdmin, searchRestaurants);
 
 // for normal users
-router.get("/latest-uploads", getLatestUploads)
+router.get("/latest-uploads", getLatestUploads);
+router.get("/single/:restaurantId", getSingleRestaurant);
+router.get("/related/:restaurantId", getRelatedRestaurants);
+router.get("/top-rated", getTopRatedRestaurants);
+router.get("/search-public", searchPublicRestaurants);
 
 module.exports = router;

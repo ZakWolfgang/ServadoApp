@@ -1,21 +1,25 @@
 const { isValidObjectId } = require("mongoose");
-const { sendError } = require("../utils/helper");
-const Menu = require("../models/menu");
+const { sendError, getAverageRatings } = require("../utils/helper");
+const Restauarant = require("../models/restaurant");
 const Review = require("../models/review");
 
 exports.addReview = async (req, res) => {
-  const { menuItemId } = req.params;
+  const { restaurantId } = req.params;
   const { content, rating } = req.body;
   const userId = req.user._id;
 
-  if (!isValidObjectId(menuItemId)) return sendError(res, "Invalid Menu Item!");
+  if (!isValidObjectId(restaurantId))
+    return sendError(res, "Invalid Restaurant!");
 
-  const menuItem = await Menu.findOne({ _id: menuItemId, status: "public" });
-  if (!menuItem) return sendError(res, "Menu Item not found!", 404);
+  const restaurant = await Restauarant.findOne({
+    _id: restaurantId,
+    status: "public",
+  });
+  if (!restaurant) return sendError(res, "Restaurant not found!", 404);
 
   const isAlreadyReviewed = await Review.findOne({
     owner: userId,
-    parentMenuItem: menuItem._id,
+    parentRestaurant: restaurant._id,
   });
   if (isAlreadyReviewed)
     return sendError(res, "Invalid request, review is already their!");
@@ -23,14 +27,14 @@ exports.addReview = async (req, res) => {
   // create and update review.
   const newReview = new Review({
     owner: userId,
-    parentMenuItem: menuItem._id,
+    parentRestaurant: restaurant._id,
     content,
     rating,
   });
 
-  // updating review for menu item.
-  menuItem.reviews.push(newReview._id);
-  await menuItem.save();
+  // updating review for restaurant.
+  restaurant.reviews.push(newReview._id);
+  await restaurant.save();
 
   // saving new review
   await newReview.save();
@@ -65,25 +69,27 @@ exports.removeReview = async (req, res) => {
   const review = await Review.findOne({ owner: userId, _id: reviewId });
   if (!review) return sendError(res, "Invalid request, review not found!");
 
-  const menuItem = await Menu.findById(review.parentMenuItem).select("reviews");
-  menuItem.reviews = menuItem.reviews.filter(
+  const restaurant = await Restauarant.findById(review.parentRestaurant).select(
+    "reviews"
+  );
+  restaurant.reviews = restaurant.reviews.filter(
     (rId) => rId.toString() !== reviewId
   );
 
   await Review.findByIdAndDelete(reviewId);
 
-  await menuItem.save();
+  await restaurant.save();
 
   res.json({ message: "Review removed successfully." });
 };
 
 exports.getReviewsByRestuarant = async (req, res) => {
-  const { menuItemId } = req.params;
+  const { restaurantId } = req.params;
 
-  if (!isValidObjectId(menuItemId))
-    return sendError(res, "Invalid Menu Item ID!");
+  if (!isValidObjectId(restaurantId))
+    return sendError(res, "Invalid Restaurant ID!");
 
-  const menuItem = await Menu.findById(menuItemId)
+  const restaurant = await Restauarant.findById(restaurantId)
     .populate({
       path: "reviews",
       populate: {
@@ -91,9 +97,9 @@ exports.getReviewsByRestuarant = async (req, res) => {
         select: "name",
       },
     })
-    .select("reviews");
+    .select("reviews name");
 
-  const reviews = menuItem.reviews.map((r) => {
+  const reviews = restaurant.reviews.map((r) => {
     const { owner, content, rating, _id: reviewID } = r;
     const { name, _id: ownerId } = owner;
 
@@ -108,5 +114,5 @@ exports.getReviewsByRestuarant = async (req, res) => {
     };
   });
 
-  res.json({ reviews });
+  res.json({ restaurant: { reviews, name: restaurant.name } });
 };

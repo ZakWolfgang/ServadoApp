@@ -5,6 +5,9 @@ const {
   sendError,
   formatMenu,
   averageRatingPipeline,
+  relatedRestaurantAggregation,
+  getAverageRatings,
+  topRatedRestaurantPipeline,
 } = require("../utils/helper");
 const cloudinary = require("../cloud");
 
@@ -275,4 +278,84 @@ exports.getSingleRestaurant = async (req, res) => {
       reviews: { ...reviews },
     },
   });
+};
+
+exports.getRelatedRestaurants = async (req, res) => {
+  const { restaurantId } = req.params;
+  if (!isValidObjectId(restaurantId))
+    return sendError(res, "Invalid Restaurant Id");
+
+  const restaurant = await Restaurant.findById(restaurantId);
+
+  const restaurants = await Restaurant.aggregate(
+    relatedRestaurantAggregation(restaurant.tags, restaurant._id)
+  );
+
+  const mapRestaurants = async (r) => {
+    const reviews = await getAverageRatings(r._id);
+
+    return {
+      id: r._id,
+      name: r.name,
+      poster: r.poster,
+      responsivePosters: r.responsivePosters,
+      reviews: { ...reviews },
+    };
+  };
+  const relatedRestaurants = await Promise.all(restaurants.map(mapRestaurants));
+
+  res.json({ restaurants: relatedRestaurants });
+};
+
+exports.getTopRatedRestaurants = async (req, res) => {
+  const { type = "Place" } = req.query;
+
+  const restaurants = await Restaurant.aggregate(
+    topRatedRestaurantPipeline(type)
+  );
+
+  const mapRestaurants = async (r) => {
+    const reviews = await getAverageRatings(r._id);
+
+    return {
+      id: r._id,
+      name: r.name,
+      poster: r.poster,
+      responsivePosters: r.responsivePosters,
+      reviews: { ...reviews },
+    };
+  };
+
+  const topRatedRestaurants = await Promise.all(
+    restaurants.map(mapRestaurants)
+  );
+
+  res.json({ restaurants: topRatedRestaurants });
+};
+
+exports.searchPublicRestaurants = async (req, res) => {
+  const { name } = req.query;
+
+  if (!name.trim()) return sendError(res, "Invalid request");
+
+  const restaurants = await Restaurant.find({
+    name: { $regex: name, $options: "i" },
+    status: "public",
+  });
+
+  const mapRestaurants = async (r) => {
+    const reviews = await await getAverageRatings(r._id);
+
+    return {
+      id: r._id,
+      name: r.name,
+      poster: r.poster?.url,
+      responsivePosters: r.poster?.responsive,
+      reviews: { ...reviews },
+    };
+  };
+
+  const results = await Promise.all(restaurants.map(mapRestaurants));
+
+  res.json({ results });
 };

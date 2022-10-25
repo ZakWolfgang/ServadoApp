@@ -8,6 +8,7 @@ import Nav from "react-bootstrap/Nav";
 import Login from "./NotLoggedIn/Login";
 import Signup from "./NotLoggedIn/Signup";
 import Landing from "./Landing";
+import AdminNavigator from './navigator/AdminNavigator';
 
 function App() {
 
@@ -17,6 +18,7 @@ function App() {
     const navigate = useNavigate();
 
     const isAdmin = authInfo.profile?.role === ("admin" || "user");
+    if(isAdmin) return <AdminNavigator />;
 
     if (isLoggedIn) return <LoggedIn/>
 

@@ -72,20 +72,20 @@ exports.averageRatingPipeline = (menuItemId) => {
   ];
 };
 
-exports.relatedMenuItemAggregation = (tags, menuItemId) => {
+exports.relatedRestaurantAggregation = (tags, restaurantId) => {
   return [
     {
       $lookup: {
-        from: "Menu",
+        from: "Restaurant",
         localField: "tags",
         foreignField: "_id",
-        as: "relatedMenu",
+        as: "relatedRestaurants",
       },
     },
     {
       $match: {
         tags: { $in: [...tags] },
-        _id: { $ne: menuItemId },
+        _id: { $ne: restaurantId },
       },
     },
     {
@@ -101,9 +101,9 @@ exports.relatedMenuItemAggregation = (tags, menuItemId) => {
   ];
 };
 
-exports.getAverageRatings = async (menuItemId) => {
+exports.getAverageRatings = async (restaurantId) => {
   const [aggregatedResponse] = await Review.aggregate(
-    this.averageRatingPipeline(menuItemId)
+    this.averageRatingPipeline(restaurantId)
   );
   const reviews = {};
 
@@ -116,7 +116,7 @@ exports.getAverageRatings = async (menuItemId) => {
   return reviews;
 };
 
-exports.topRatedMenuPipeline = (type) => {
+exports.topRatedRestaurantPipeline = (type) => {
   const matchOptions = {
     reviews: { $exists: true },
     status: { $eq: "public" },
@@ -127,18 +127,14 @@ exports.topRatedMenuPipeline = (type) => {
   return [
     {
       $lookup: {
-        from: "Menu",
+        from: "Restaurant",
         localField: "reviews",
         foreignField: "_id",
         as: "topRated",
       },
     },
     {
-      $match: {
-        reviews: { $exists: true },
-        status: { $eq: "public" },
-        type: { $eq: type },
-      },
+      $match: matchOptions,
     },
     {
       $project: {

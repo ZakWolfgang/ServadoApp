@@ -3,7 +3,6 @@ import {Route, Routes, useNavigate} from "react-router-dom";
 import Home from "./LoggedIn/Home";
 import LoggedNav from "./Navigation/LoggedNav";
 import Menu from "./LoggedIn/Menu";
-import MenuUpload from "./components/admin/MenuUpload";
 
 function LoggedIn() {
 
