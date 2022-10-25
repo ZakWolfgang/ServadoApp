@@ -46,7 +46,6 @@ return (
             <ReviewCard value={1} name={'Alex S'} txt={'Wrong order'} desc={'i am not happy'}/>
             <ReviewCard value={3} name={'Clindell T'} txt={'Enjoyed my experience'} desc={'favorite restaurant, always has always will be'}/>
         </div>
-        <button onClick={()=>setOpener(true)}>open drawer</button>
         <TempDrawer label={label} opener={opener} setOpener={setOpener}/>
     </div>
 );
