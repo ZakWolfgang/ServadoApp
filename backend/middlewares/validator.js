@@ -27,36 +27,20 @@ exports.signInValidator = [
   check("password").trim().not().isEmpty().withMessage("Password is missing!"),
 ];
 
-exports.validateMenu = [
+exports.validateRestaurant = [
   check("name")
     .trim()
     .not()
     .isEmpty()
-    .withMessage("Menu Item name is missing!"),
+    .withMessage("Restaurant name is missing"),
   check("description")
     .trim()
     .not()
     .isEmpty()
-    .withMessage("Description is missing!"),
+    .withMessage("Tell description us about your restaurant"),
   check("status")
     .isIn(["public", "private"])
-    .withMessage("Menu status must be public or private!"),
-  check("type")
-    .trim()
-    .not()
-    .isEmpty()
-    .withMessage("Menu Item type is missing!"),
-  check("tags")
-    .isArray({ min: 1 })
-    .withMessage("Tags must be an array of strings!")
-    .custom((tags) => {
-      for (let tag of tags) {
-        if (typeof tag !== "string")
-          throw Error("Tags must be an array of strings!");
-      }
-
-      return true;
-    }),
+    .withMessage("Status must be public or private"),
 ];
 
 exports.validateRatings = check(

@@ -28,9 +28,19 @@ exports.uploadImageToCloud = async (file) => {
   return { url, public_id };
 };
 
+exports.formatMenu = (menu) => {
+  const { name, description, poster } = menu;
+  return {
+    id: _id,
+    name,
+    description,
+    poster: poster?.url,
+  };
+};
+
 exports.parseData = (req, res, next) => {
-  const { tags } = req.body;
-  if (tags) req.body.tags = JSON.parse(tags);
+  const { menu } = req.body;
+  if (menu) req.body.menu = JSON.parse(menu);
 
   next();
 };
@@ -62,20 +72,20 @@ exports.averageRatingPipeline = (menuItemId) => {
   ];
 };
 
-exports.relatedMenuItemAggregation = (tags, menuItemId) => {
+exports.relatedRestaurantAggregation = (tags, restaurantId) => {
   return [
     {
       $lookup: {
-        from: "Menu",
+        from: "Restaurant",
         localField: "tags",
         foreignField: "_id",
-        as: "relatedMenu",
+        as: "relatedRestaurants",
       },
     },
     {
       $match: {
         tags: { $in: [...tags] },
-        _id: { $ne: menuItemId },
+        _id: { $ne: restaurantId },
       },
     },
     {
@@ -91,9 +101,9 @@ exports.relatedMenuItemAggregation = (tags, menuItemId) => {
   ];
 };
 
-exports.getAverageRatings = async (menuItemId) => {
+exports.getAverageRatings = async (restaurantId) => {
   const [aggregatedResponse] = await Review.aggregate(
-    this.averageRatingPipeline(menuItemId)
+    this.averageRatingPipeline(restaurantId)
   );
   const reviews = {};
 
@@ -106,7 +116,7 @@ exports.getAverageRatings = async (menuItemId) => {
   return reviews;
 };
 
-exports.topRatedMenuPipeline = (type) => {
+exports.topRatedRestaurantPipeline = (type) => {
   const matchOptions = {
     reviews: { $exists: true },
     status: { $eq: "public" },
@@ -117,18 +127,14 @@ exports.topRatedMenuPipeline = (type) => {
   return [
     {
       $lookup: {
-        from: "Menu",
+        from: "Restaurant",
         localField: "reviews",
         foreignField: "_id",
         as: "topRated",
       },
     },
     {
-      $match: {
-        reviews: { $exists: true },
-        status: { $eq: "public" },
-        type: { $eq: type },
-      },
+      $match: matchOptions,
     },
     {
       $project: {

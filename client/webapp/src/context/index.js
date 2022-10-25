@@ -1,7 +1,7 @@
 import React from "react";
 import AuthProvider from "./AuthProvider";
-import MenuProvider from "./MenuProvider";
 import NotificationProvider from "./NotificationProvider";
+import RestaurantsProvider from "./RestaurantsProvider";
 import SearchProvider from "./SearchProvider";
 import ThemeProvider from "./ThemeProvider";
 
@@ -9,11 +9,11 @@ export default function ContextProviders({ children }) {
   return (
     <NotificationProvider>
       <SearchProvider>
-        <MenuProvider>
+        <RestaurantsProvider>
           <AuthProvider>
             <ThemeProvider>{children}</ThemeProvider>
           </AuthProvider>
-        </MenuProvider>
+        </RestaurantsProvider>
       </SearchProvider>
     </NotificationProvider>
   );
