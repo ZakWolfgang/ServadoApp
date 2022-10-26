@@ -38,7 +38,7 @@ export default function MenuScreen({navigation, productData}) {
                       />
                     )}
                 />
-            </View>
+        </View>
             <TouchableOpacity>
               <View style ={styles.cartContainer}>
                 <View style ={styles.cartCounterContainer}>
