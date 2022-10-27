@@ -29,6 +29,7 @@ export default function MenuCard({
                     style={styles.checkbox}
                     center
                     title="Add To Cart"
+                    size={40}
                     checked={check1}
                     onPress={() => setCheck1(!check1)}
                 />
@@ -48,36 +49,28 @@ const styles =StyleSheet.create({
         margin:7,
         padding:15,
         borderRadius:30,
-        marginVertical:9
+        marginVertical:9,
+        borderWidth:.5
         
         
     },
     image:{
         borderRadius:15,
         height:150,
-        
-
+    
     },
 
     meal: {
-        fontSize:15,
+        fontSize:20,
         color:'black',
-        fontWeight:"bold"
+        fontWeight:"bold",
+        
     },
 
     price:{
-        fontSize:15,
+        fontSize:20,
         color:"black",
     },
 
-    checkbox:{
-        backgroundColor:colors.darkBlue,
-        marginTop:15,
-        marginBottom:5,
-        justifyContent:"center",
-        borderColor:colors.darkBlue,
-        borderWidth:1,
-        borderRadius:25,
-    }
 
 })
