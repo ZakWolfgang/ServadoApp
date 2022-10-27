@@ -4,7 +4,7 @@ import { KeyboardAvoidingView, Image, StyleSheet, Text, TextInput, TouchableOpac
 
 import { colors } from '../global/styles.js';
 import { auth } from '../firebase'
-import image from '../images/logo-color.png'
+import image from '../images/servado.png'
 import { ScreenWidth } from '@rneui/base';
 
 
@@ -121,6 +121,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 40,
+    marginBottom:120
   },
   button: {
     backgroundColor:colors.darkBlue,
@@ -149,9 +150,9 @@ const styles = StyleSheet.create({
   logo:{
     width:300,
     height:300,
-    borderRadius:1000,
-    marginBottom:50,
-    margin:21
+    borderRadius:1900,
+    margin:20,
+    marginBottom:50
 
   }
 })
