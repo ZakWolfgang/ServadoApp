@@ -1,7 +1,7 @@
 import './SignupPage.css'
 import React, {useEffect, useState} from "react";
 import {Link, Route, Routes, useNavigate} from "react-router-dom";
-import homepic from '../Pictures/homepic.jpg'
+import homepic from '../../Pictures/homepic.jpg'
 import Signup from './Signup';
 
 function SignupPage() {

@@ -2,7 +2,7 @@
     display: flex;
     justify-content: space-around;
     max-width: 100%;
-    background: url(../Pictures/forkandknife.jpg);
+    background: url(../../Pictures/forkandknife.jpg);
 }
 
 .nlpic {
