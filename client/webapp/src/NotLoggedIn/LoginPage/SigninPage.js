@@ -1,7 +1,7 @@
 import './SigninPage.css'
 import React, {useEffect, useState} from "react";
 import Login from "./Login";
-import homepic from '../Pictures/homepic.jpg'
+import homepic from '../../Pictures/homepic.jpg'
 
 function SigninPage() {
     

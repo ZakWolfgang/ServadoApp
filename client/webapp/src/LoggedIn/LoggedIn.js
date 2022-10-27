@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {Route, Routes} from "react-router-dom";
-import Home from "./LoggedIn/Home";
-import LoggedNav from "./Navigation/LoggedNav";
-import Menu from "./LoggedIn/Menu";
-import Profile from './LoggedIn/Profile'
+import Home from "./Home";
+import LoggedNav from "../Navigation/LoggedNav";
+import Menu from "./Menu";
+import Profile from './Profile'
+import {useNavigate} from "react-router-dom";
 
 function LoggedIn() {
+
+    const nav = useNavigate()
+    useEffect(() =>{
+        nav('/home')
+    },[])
 
     return (
         <div className='app'>
