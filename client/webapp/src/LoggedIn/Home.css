@@ -1,15 +1,11 @@
 .home {
-    justify-content: space-around;
     display: flex;
     height: 93vh;
 }
 
-.car {
-padding: 5vh 0;
-}
-
 .txtbox {
     padding: 40vh 0;
+    text-align: center;
 }
 
 .txt {
@@ -22,8 +18,7 @@ padding: 5vh 0;
     color: white;
     border: none;
     border-radius: 5px;
-    padding: 3px;
-    text-decoration: none;
+    padding: 10px;
 }
 
 .hbuttont {
@@ -40,4 +35,14 @@ padding: 5vh 0;
 
 .hbuttont:hover {
     color: black;
+}
+
+.homelogo {
+    max-height: 100%;
+    border-radius: 100%;
+}
+
+.car {
+
+    padding-right: 10%;
 }
