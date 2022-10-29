@@ -21,6 +21,7 @@ function Navigation() {
     return (
         <Navbar className='navbar' sticky='top' bg="light" variant="dark">
             <Container>
+                <h2 className='navname'>Servado</h2>
                 <Navbar.Brand href="/">
                     <img
                         src={Logo}

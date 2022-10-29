@@ -14,13 +14,20 @@ export default function MenuScreen({navigation, productData}) {
     return (
       <View style={styles.container}>
         <View style={styles.cardView}>
-          {/*<Button
-            title="Go to Payment"
-            onPress={() => navigation.navigate('Payment')}
-    />*/}
+          
         <View style ={styles.headerTextView}>
           <Text style ={styles.headerText}>What Do You Want To Eat?</Text>
         </View> 
+        <TouchableOpacity>
+              <View style ={styles.cartContainer}>
+                <View style ={styles.cartCounterContainer}>
+                  <Text style ={styles.cartText}>Cart</Text>
+                    <View style ={styles.cartCounter}>
+                      <Text style ={styles.cartNum}>0</Text>
+                    </View>
+                </View>
+              </View>
+            </TouchableOpacity>
         <View>
         <View style ={{flex:1}}>
             <View style ={styles.menuCard}>
@@ -38,17 +45,7 @@ export default function MenuScreen({navigation, productData}) {
                       />
                     )}
                 />
-            </View>
-            <TouchableOpacity>
-              <View style ={styles.cartContainer}>
-                <View style ={styles.cartCounterContainer}>
-                  <Text style ={styles.cartText}>View Cart</Text>
-                    <View style ={styles.cartCounter}>
-                      <Text style ={styles.cartNum}>0</Text>
-                    </View>
-                </View>
-              </View>
-            </TouchableOpacity>
+            </View>  
         </View>
         </View>
         </View>
@@ -60,7 +57,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor:colors.yellow,
-    alignItems: 'center'
+    alignItems: 'center',
+    paddingBottom:50
   },
   cardView: {
     alignItems:'center',
@@ -84,16 +82,20 @@ const styles = StyleSheet.create({
     
   },
   menuCard:{
-    marginTop:5,
-    paddingBottom:150,
+    marginTop:1,
+    paddingBottom:50,
 
   },
   cartContainer:{
-    backgroundColor:'white',
-    height:50,
+    backgroundColor:colors.darkBlue,
     alignContent:"center",
-    marginBottom:0,
-    justifyContent:"center"
+    marginTop:15,
+    marginBottom:5,
+    justifyContent:"center",
+    borderColor:colors.darkBlue,
+    borderWidth:1,
+    borderRadius:25,
+
         
   },
 
@@ -107,22 +109,24 @@ const styles = StyleSheet.create({
     padding:10,
     fontWeight:"bold",
     fontSize:18,
-    color:"black"
+    color:colors.white,
+    marginLeft:25
   },
 
   cartCounter:{ 
-    borderWidth:1,
+    borderWidth:2,
     marginRight:10,
-    borderColor:"black",
+    borderColor:colors.white,
     borderRadius:6,
-    paddingBottom:2
+    paddingBottom:2,
+    marginRight:30
   },
 
   cartNum:{
     paddingHorizontal:3,
     fontWeight:"bold",
     fontSize:18,
-    color:"black",
+    color:colors.white,
   },
   
 })

@@ -2,9 +2,9 @@ import './App.css'
 import React from "react";
 import { useAuth } from "./hooks";
 import {Route, Routes, useNavigate} from "react-router-dom";
-import SignupPage from "./NotLoggedIn/SignupPage";
-import SigninPage from './NotLoggedIn/SigninPage';
-import LoggedIn from './LoggedIn'
+import SignupPage from "./NotLoggedIn/SignupPage/SignupPage";
+import SigninPage from './NotLoggedIn/LoginPage/SigninPage';
+import LoggedIn from './LoggedIn/LoggedIn'
 
 function App() {
 

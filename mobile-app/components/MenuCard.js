@@ -1,6 +1,9 @@
-import React from 'react';
+import React,{ useState } from 'react';
 import {Text,View,Image,StyleSheet, TouchableOpacity} from 'react-native';
 import {colors} from '../global/styles'
+import { CheckBox } from "@rneui/themed"
+
+
 
 export default function MenuCard({
     onPressMenuCard,
@@ -9,6 +12,9 @@ export default function MenuCard({
     images,
     screenWidth
     }){
+    
+    const [check1, setCheck1] = useState(false);
+ 
     return(
         <TouchableOpacity onPress={onPressMenuCard}>
            <View style ={{...styles.container, width:screenWidth}}>
@@ -19,6 +25,14 @@ export default function MenuCard({
 
                 <Text style ={styles.meal}>{meal}</Text>
                 <Text style = {styles.price}>${price}</Text>
+                <CheckBox
+                    style={styles.checkbox}
+                    center
+                    title="Add To Cart"
+                    size={40}
+                    checked={check1}
+                    onPress={() => setCheck1(!check1)}
+                />
            </View> 
         </TouchableOpacity>
         
@@ -35,26 +49,28 @@ const styles =StyleSheet.create({
         margin:7,
         padding:15,
         borderRadius:30,
-        marginVertical:9
+        marginVertical:9,
+        borderWidth:.5
         
         
     },
     image:{
         borderRadius:15,
         height:150,
-        
-
+    
     },
 
     meal: {
-        fontSize:15,
+        fontSize:20,
         color:'black',
-        fontWeight:"bold"
+        fontWeight:"bold",
+        
     },
 
     price:{
-        fontSize:15,
+        fontSize:20,
         color:"black",
     },
+
 
 })

@@ -1,12 +1,13 @@
 import React from 'react';
 import FoodCarousel from "../ComponentsZ/FoodCarousel";
 import './Home.css'
+import Logo2 from '../Pictures/Logo2.png'
 
 function Home() {
     return (
         <div className='home'>
             <div className='car'>
-                <FoodCarousel/>
+                <img className='homelogo' src={Logo2}/>
             </div>
             <div className='txtbox'>
                 <h2>Easy Customer Access</h2>

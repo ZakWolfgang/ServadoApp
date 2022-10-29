@@ -22,3 +22,12 @@
 .button:hover {
     color: black;
 }
+
+.d-inline-block {
+    border-radius: 100%;
+}
+
+.navname {
+    color: black;
+    padding-right: 2%;
+}
