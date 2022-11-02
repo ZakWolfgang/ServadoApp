@@ -5,6 +5,7 @@ import LoggedNav from "../Navigation/LoggedNav";
 import Menu from "./Menu";
 import Profile from './Profile'
 import {useNavigate} from "react-router-dom";
+import Orders from "./Orders";
 
 function LoggedIn() {
 
@@ -24,6 +25,9 @@ function LoggedIn() {
             </Routes>
             <Routes>
                 <Route path="/profile" element={<Profile />}/>
+            </Routes>
+            <Routes>
+                <Route path="/myorders" element={<Orders/>}/>
             </Routes>
 
         </div>

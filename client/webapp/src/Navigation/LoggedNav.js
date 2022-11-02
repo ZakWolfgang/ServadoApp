@@ -35,6 +35,7 @@ function Navigation() {
                     <Nav.Link><Link className='navlinks' to="/home">Home</Link></Nav.Link>
                     <Nav.Link><Link className='navlinks' to="/menu">My Menu</Link></Nav.Link>
                     <Nav.Link><Link className='navlinks' to="/profile">Profile</Link></Nav.Link>
+                    <Nav.Link><Link className='navlinks' to="/myorders">My Orders</Link></Nav.Link>
                 </Nav>
                 <Nav>
                     <button className='button' onClick={()=> logouthandle()}>Logout</button>
