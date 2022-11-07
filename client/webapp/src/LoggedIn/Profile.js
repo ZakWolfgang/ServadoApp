@@ -1,10 +1,17 @@
 import React, {useState} from 'react';
 import './Profile.css'
+import Form from 'react-bootstrap/Form';
 import TextField from "@mui/material/TextField";
+import { MuiTelInput } from 'mui-tel-input'
 
 function Profile(props) {
 
     const [edit, setEdit] = useState(false)
+    const [name, setName] = useState('Milan Mondayz')
+    const [location, setLocation] = useState('1239 Send Help Dr.')
+    const [description, setDescription] = useState('New meal every week, come check me out!')
+    const [email, setEmail] = useState('zach@zach.com')
+
     return (
         <div>
             <div className='profheader'>This finna be a bomb ass header</div>
@@ -22,31 +29,35 @@ function Profile(props) {
                                     margin="normal"
                                     fullWidth
                                     id="name"
-                                    label="Company Name"
+                                    label="name"
                                     name="name"
                                     autoFocus
-                                    inputProps={{ maxLength: '8' }}
+                                    InputLabelProps={{ shrink: true }}
                                 />
                                 <TextField
                                     margin="normal"
                                     fullWidth
                                     id="location"
-                                    label="Location"
+                                    label="location"
                                     name="location"
+                                    InputLabelProps={{ shrink: true }}
                                 />
                                 <TextField
                                     margin="normal"
                                     fullWidth
-                                    id="name"
-                                    label="Company Name"
-                                    name="name"
+                                    id="email"
+                                    label="email"
+                                    name="email"
+                                    InputLabelProps={{ shrink: true }}
                                 />
                                 <TextField
                                     margin="normal"
                                     fullWidth
-                                    id="name"
-                                    label="Company Name"
-                                    name="name"
+                                    multiline
+                                    id="outlined-textarea"
+                                    label="description"
+                                    name="description"
+                                    InputLabelProps={{ shrink: true }}
                                 />
                                 <div className='sbs'>
                                     <button>submit</button>
@@ -55,10 +66,10 @@ function Profile(props) {
                             </div>
                         ) : (
                             <div>
-                                <p>Name</p>
-                                <p>Location</p>
-                                <p>email</p>
-                                <p>phone number</p>
+                                <p>{name}</p>
+                                <p>{location}</p>
+                                <p>{email}</p>
+                                <p>{description}</p>
                                 <button onClick={()=> setEdit(!edit)}>edit</button>
                             </div>
                             )}
