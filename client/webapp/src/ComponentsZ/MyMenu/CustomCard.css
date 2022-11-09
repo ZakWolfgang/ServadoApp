@@ -1,0 +1,15 @@
+.cuscard{
+    padding: 20px;
+    width:70%;
+    background: white;
+    border-radius: 10px;
+}
+
+.cus-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.text {
+    font-size: 3vh;
+}

@@ -1,0 +1,48 @@
+.home {
+    display: flex;
+    height: 93vh;
+}
+
+.txtbox {
+    padding: 40vh 0;
+    text-align: center;
+}
+
+.txt {
+    line-height: 8px;
+}
+
+.hbutton {
+    background-color: #e63462;
+    text-decoration: none;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.hbuttont {
+    font-size: 20px;
+    text-decoration: none;
+    color: white;
+}
+
+.hbutton:hover {
+    background: #f4d58d;
+    color: black;
+    transition: 0.3s;
+}
+
+.hbuttont:hover {
+    color: black;
+}
+
+.homelogo {
+    max-height: 100%;
+    border-radius: 100%;
+}
+
+.car {
+
+    padding-right: 10%;
+}

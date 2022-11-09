@@ -1,0 +1,33 @@
+.navlinks {
+    text-decoration: none;
+    color: #e63462;
+}
+
+.navlinks:hover {
+    color:black;
+
+}
+
+.navbar {
+    font-size: 2vh;
+    height: 7vh;
+}
+
+.button {
+    color: #e63462;
+    border: none;
+    background-color: #fafafa;
+}
+
+.button:hover {
+    color: black;
+}
+
+.d-inline-block {
+    border-radius: 100%;
+}
+
+.navname {
+    color: black;
+    padding-right: 2%;
+}

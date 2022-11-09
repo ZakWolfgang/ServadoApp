@@ -1,0 +1,29 @@
+.menu {
+    padding-top: 10vh;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+
+.header {
+    padding-bottom: 5vh;
+}
+
+.cusgrid {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10vh;
+    margin-right: 30%;
+    margin-left: 30%;
+}
+
+.cusgridrev {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 10vh;
+}
+
+.ugh {
+    width: 100%;
+    text-decoration: none;
+    color: #2c5ea0;
+}
