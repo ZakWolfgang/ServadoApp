@@ -45,7 +45,7 @@ exports.parseData = (req, res, next) => {
   next();
 };
 
-exports.averageRatingPipeline = (menuItemId) => {
+exports.averageRatingPipeline = (restaurantId) => {
   return [
     {
       $lookup: {
@@ -56,7 +56,7 @@ exports.averageRatingPipeline = (menuItemId) => {
       },
     },
     {
-      $match: { parentMenuItem: menuItemId },
+      $match: { parentRestaurant: restaurantId },
     },
     {
       $group: {

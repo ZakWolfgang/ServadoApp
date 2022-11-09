@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+const { ObjectId } = mongoose.Schema;
 
 const userSchema = mongoose.Schema({
   name: {
@@ -28,6 +29,29 @@ const userSchema = mongoose.Schema({
     default: "user",
     enum: ["admin", "user"],
   },
+  // for profile
+  details: {
+    company: {
+      type: String,
+    },
+    location: {
+      type: String,
+    },
+    email: {
+      type: String,
+    },
+    phone: {
+      type: String,
+    },
+  },
+  savedMenu: [
+    {
+      menu: {
+        type: ObjectId,
+        ref: "Restaurant",
+      },
+    },
+  ],
 });
 
 userSchema.pre("save", async function (next) {

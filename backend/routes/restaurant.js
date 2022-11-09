@@ -22,7 +22,6 @@ const router = express.Router();
 router.post(
   "/create",
   isAuth,
-  isAdmin,
   uploadImage.single("poster"),
   parseData,
   validateRestaurant,
@@ -33,7 +32,6 @@ router.post(
 router.patch(
   "/update/:restaurantId",
   isAuth,
-  isAdmin,
   uploadImage.single("poster"),
   parseData,
   validateRestaurant,
@@ -41,14 +39,13 @@ router.patch(
   updateRestaurant
 );
 
-router.delete("/:restaurantId", isAuth, isAdmin, removeRestaurant);
+router.delete("/:restaurantId", isAuth, removeRestaurant);
 
-router.get("/restaurants", isAuth, isAdmin, getRestaurants);
+router.get("/restaurants", isAuth, getRestaurants);
 
 router.get(
   "/for-update/:restaurantId",
   isAuth,
-  isAdmin,
   getRestaurantForUpdate
 );
 

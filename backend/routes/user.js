@@ -7,6 +7,7 @@ const {
   sendResetPasswordTokenStatus,
   resetPassword,
   signIn,
+  updateDetails,
 } = require("../controllers/user");
 const { isAuth } = require("../middlewares/auth");
 const { isValidPassResetToken } = require("../middlewares/user");
@@ -36,6 +37,7 @@ router.post(
   isValidPassResetToken,
   resetPassword
 );
+router.put("/updateDetails", isAuth, updateDetails);
 router.get("/is-auth", isAuth, (req, res) => {
   const { user } = req;
   res.json({

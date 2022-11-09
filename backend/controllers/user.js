@@ -65,7 +65,8 @@ exports.verifyEmail = async (req, res) => {
   if (!token) return sendError(res, "token not found!");
 
   const isMatched = await token.compareToken(OTP);
-  if (!isMatched) return sendError(res, "Please submit a valid verfication code!");
+  if (!isMatched)
+    return sendError(res, "Please submit a valid verfication code!");
 
   user.isVerified = true;
   await user.save();
@@ -100,8 +101,7 @@ exports.resendEmailVerificationToken = async (req, res) => {
   const user = await User.findById(userId);
   if (!user) return sendError(res, "user not found!");
 
-  if (user.isVerified)
-    return sendError(res, "email is already verified!");
+  if (user.isVerified) return sendError(res, "email is already verified!");
 
   const alreadyHasToken = await EmailVerificationToken.findOne({
     owner: userId,
@@ -235,4 +235,22 @@ exports.signIn = async (req, res) => {
   res.json({
     user: { id: _id, name, email, role, token: jwtToken, isVerified },
   });
+};
+
+exports.updateDetails = async (req, res) => {
+  try {
+    const { infos } = req.body;
+    const updated = await User.findByIdAndUpdate(
+      req.user.id,
+      {
+        details: infos,
+      },
+      {
+        new: true,
+      }
+    );
+    res.json(updated.details);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
 };
